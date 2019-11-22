@@ -1,0 +1,37 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <div data-role="page" id="loginpage">
+       
+        <div data-role="header" data-position="fixed">          
+              
+            <h1>Login</h1>
+        </div>
+        <div data-role="main" class="ui-content">
+            <form>
+                <div class="ui-field-contain">
+                    <label for="txtUsername">Username:</label>
+                    <input type="text" id="txtUsername" data-clear-btn="true" />
+                    <label for="txtPasswords">Password:</label>
+                    <input type="text" id="txtPasswords" data-clear-btn="true" />
+
+                    <label for="btnLogin"></label>
+                    <a class="ui-btn ui-icon-plus ui-btn-icon-left"
+                       id="btnLogin" onclick="loginUserdata()">Login</a>
+                    <br />
+                    <a class="ui-btn ui-icon-plus ui-btn-icon-left"
+                       id="btnReg" onclick="toRegister()">Register user</a>
+                </div>
+            </form>
+        </div>
+        <div data-role="footer" data-position="fixed">
+            <h1>Geocaching Vault</h1>
+        </div>
+    </div>
+</body>
+</html>
