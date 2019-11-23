@@ -1,7 +1,7 @@
 * {
     -webkit-tap-highlight-color: rgba(0,0,0,0);
 }
-
+/* Ari Martelius, 1800582 */
 body {
     -webkit-touch-callout: none;
     -webkit-text-size-adjust: none;
@@ -58,7 +58,6 @@ h1 {
     overflow: visible;
     padding: 0px;
     text-align: center;
-    
 }
 
 .event {
@@ -96,13 +95,14 @@ h1 {
     animation:fade 3000ms infinite;
     -webkit-animation:fade 3000ms infinite;
 }
-
+/* Added color for header and footer */
 .ui-page .ui-header {
     background: coral;
 }
 .ui-page .ui-footer {
     background: coral;
 }
+/* Tab bar modifications for 4 tabs */
 #tab-bar {
     margin: 0;
     padding: 0;
