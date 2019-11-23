@@ -2,6 +2,7 @@
 
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
+    <!-- Ari Martelius, 1800582 -->
     <!-- Include meta tag to ensure proper rendering and touch zooming -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Include jQuery Mobile stylesheets -->
@@ -40,15 +41,18 @@
     </style>
 
 </head>
-<body  class="cover vertical-align-center blue-grey-600 align-center blend-soft-light">
-
+<body class="cover vertical-align-center blue-grey-600 align-center blend-soft-light">
+    <!-- Side menu navigation -->
     <div data-role="page" id="registerpage">
         <div data-role="panel" id="registerPagePanel">
             <h1>Menu</h1>
+
             <ul data-role="listview" data-inset="true">
                 <li data-role="list-divider">Geocaching Vault</li>
                 <li data-icon="plus"><a href="index.html">Add</a></li>
                 <li data-icon="grid"><a href="#list.html">List</a></li>
+                <li data-icon="info"><a href="about.html">About</a></li>
+                <li data-icon="star"><a href="contact.html">Contact info</a></li>
                 <li data-icon="back"><a href="login.html">Log out</a></li>
             </ul>
         </div>
@@ -59,7 +63,7 @@
 
         </div>
 
-        
+        <!-- forms for cache viewing and manipulation -->
         <div data-role="main" class="ui-content">
             <form id="showCache">
                 <div class="ui-field-contain">
@@ -70,6 +74,9 @@
             </form>
             <form id="selectedCache">
                 <div class="ui-field-contain">
+                    <label for="btnAdd"></label>
+                    <a class="ui-btn ui-icon-plus ui-btn-icon-left"
+                       id="btnAdd" onclick="getLocationdata()">Get locations</a>
                     <label for="showLocation">Location info:</label>
 
                     <textarea name="showLocation" id="showLocation" data-clear-btn="true" style="height:400px;"></textarea>
@@ -77,9 +84,7 @@
 
                     <textarea name="showGPS" id="showGPS" data-clear-btn="true" style="height:400px;"></textarea>
                     <input type="hidden" id="rowInfo" />
-                    <label for="btnAdd"></label>
-                    <a class="ui-btn ui-icon-plus ui-btn-icon-left"
-                       id="btnAdd" onclick="getLocationdata()">Get locations</a>
+
                     <label for="btnAdd"></label>
                     <a class="ui-btn ui-icon-plus ui-btn-icon-left"
                        id="btnAdd" onclick="updateLocationdata()">Update selected</a>
@@ -89,8 +94,22 @@
                 </div>
             </form>
         </div>
-        <div data-role="footer" data-position="fixed">
-            <h1>Geocaching Vault</h1>
+        <!-- Tabs navigation -->
+        <div id="tabs" data-role="footer" data-position="fixed">
+            <ul id="tab-bar">
+                <li>
+                    <a href="index.html">Add</a>
+                </li>
+                <li>
+                    <a href="#list.html">List</a>
+                </li>
+                <li>
+                    <a href="about.html">About</a>
+                </li>
+                <li>
+                    <a href="contact.html">Contact</a>
+                </li>
+            </ul>
         </div>
     </div>
 </body>

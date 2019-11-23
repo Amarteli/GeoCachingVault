@@ -1,4 +1,5 @@
 var databaseHandler = {
+    //Ari Martelius, 1800582
     db: null,
     createDatabase: function () {
         this.db = window.openDatabase(
@@ -9,7 +10,7 @@ var databaseHandler = {
         this.db.transaction(
             function (tx) {
                 
-                //Run SQL Here
+                //Creating tables
                 tx.executeSql(
                     "create table if not exists userdata( username text primary key, passwords text)",
                 [],

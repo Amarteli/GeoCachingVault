@@ -1,8 +1,10 @@
 ﻿var locationDataHandler = {
+    //Ari Martelius, 1800582
     //Add the record in database, it adds record or row in Web SQL (SQLite)
     addAction: function (usrname, locationText, locationGPS) {
         databaseHandler.db.transaction(
             function (tx) {
+                //Adding geodata
                 tx.executeSql(
                     "insert into geodata( username, geotext, geolocation) values( ?, ?, ?)",
                     [usrname, locationText, locationGPS],
@@ -21,7 +23,7 @@
     updateRowData: function (usrname, locationText, locationGPS, row) {
         databaseHandler.db.transaction(
             function (tx) {
-                //alert(usrname + ", " + locationText + ", " + locationGPS + ", " + row );
+                //Update geodata
                 tx.executeSql(
                     "UPDATE geodata SET geotext = ? ,  geolocation = ?  WHERE rowid  = ? ",
                     [locationText, locationGPS, row],
@@ -43,7 +45,7 @@
     deleteRowData: function ( row) {
         databaseHandler.db.transaction(
             function (tx) {
-                //alert(usrname + ", " + locationText + ", " + locationGPS + ", " + row);
+                //Delete geodata
                 tx.executeSql(
                     "DELETE FROM geodata WHERE rowid = ?",
                     [row],

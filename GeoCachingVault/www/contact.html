@@ -4,16 +4,16 @@
 <head>
     <!-- Ari Martelius, 1800582 -->
     <meta charset="utf-8" />
-    <title></title>
+    <title>Register</title>
 </head>
 <body>
-    <div data-role="page" id="loginpage">
+    <div data-role="page" id="registerpage">
 
         <div data-role="header" data-position="fixed">
 
-            <h1>Login</h1>
+            <h1>Register</h1>
         </div>
-        <!-- Login form -->
+        <!-- Registration form -->
         <div data-role="main" class="ui-content">
             <form>
                 <div class="ui-field-contain">
@@ -22,12 +22,11 @@
                     <label for="txtPasswords">Password:</label>
                     <input type="text" id="txtPasswords" data-clear-btn="true" />
 
-                    <label for="btnLogin"></label>
+                    <label for="btnRegister"></label>
                     <a class="ui-btn ui-icon-plus ui-btn-icon-left"
-                       id="btnLogin" onclick="loginUserdata()">Login</a>
-                    <br />
-                    <a class="ui-btn ui-icon-plus ui-btn-icon-left"
-                       id="btnReg" onclick="toRegister()">Register user</a>
+                       id="btnRegister" onclick="addUserdata()">Register</a>
+
+
                 </div>
             </form>
         </div>

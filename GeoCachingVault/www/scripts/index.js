@@ -1,4 +1,5 @@
-﻿//Creating a database
+﻿//Ari Martelius, 1800582
+//Creating a database
 $(document).on("ready", function () {
     databaseHandler.createDatabase();
 

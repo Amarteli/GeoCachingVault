@@ -1,4 +1,5 @@
 ﻿var loginHandler = {
+    //Ari Martelius, 1800582
     //Add the record in database, it adds record or row in Web SQL (SQLite)
     loginUser: function ( usrname, psswords) {
         databaseHandler.db.transaction(
@@ -8,10 +9,10 @@
                      [usrname, psswords],
                      function (tx, results) {
                          if (results.rows.length > 0) {
-                             //alert("loghandler " + usrname);
+                             
                              sessionStorage.setItem("user_info", usrname);
                              var nameinfo = sessionStorage.getItem("user_info");
-                             //alert("loginhandler " + nameinfo + nameinfo.length);
+                             //On successful login user is moved to main page
                              $.mobile.changePage("index.html");
                          }
                         },

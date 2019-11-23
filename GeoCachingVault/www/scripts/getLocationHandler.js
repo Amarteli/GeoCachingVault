@@ -1,5 +1,6 @@
 ﻿var getLocationHandler = {
-    //Add the record in database, it adds record or row in Web SQL (SQLite)
+    //Ari Martelius, 1800582
+    //Getting geocaches from database
     getLocationData: function ( usrname) {
         databaseHandler.db.transaction(
             function (tx) {
@@ -9,8 +10,9 @@
                      function (tx, results) {
                          if (results.rows.length > 0) {
                              var i;
-                            // $("#txtList").innerHTML = "";
+                            //Clearing geocache view
                              $("#txtList tr").remove();
+                             //Adding all found geocaches to page
                             for (i = 0; i < results.rows.length; i++ ) {
                                 $("#txtList").append("<tr><td>" + results.rows.item(i).geotext + "</td><td>" + results.rows.item(i).geolocation + "</td><td><img src='/img/ok.ico' alt='ok' class='image' onclick='showData(" + i + ")'></td></tr>");
                             }             
@@ -29,6 +31,7 @@
     },
 
     showRowData: function (usrname, rowid) {
+        //Moving selected geocache data for modifying
         databaseHandler.db.transaction(
             function (tx) {
                 tx.executeSql(
@@ -40,7 +43,7 @@
                         if (results.rows.length > 0) {
                             for (i = 0; i < results.rows.length; i++) {
                                 if (i == rowid) {
-                                
+                                //rowinfo is hidden field
                                     $("#showLocation").val(results.rows.item(i).geotext);
                                     $("#showGPS").val(results.rows.item(i).geolocation);
                                     $("#rowInfo").val(results.rows.item(i).rowid);

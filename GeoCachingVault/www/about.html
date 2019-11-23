@@ -1,0 +1,53 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <!-- Ari Martelius, 1800582 -->
+    <meta charset="utf-8" />
+    <title>About</title>
+</head>
+<body>
+    <!-- Side menu navigation -->
+    <div data-role="page" id="registerpage">
+        <div data-role="panel" id="registerPagePanel">
+            <h1>Menu</h1>
+
+            <ul data-role="listview" data-inset="true">
+                <li data-role="list-divider">Geocaching Vault</li>
+                <li data-icon="plus"><a href="index.html">Add</a></li>
+                <li data-icon="grid"><a href="list.html">List</a></li>
+                <li data-icon="info"><a href="#about.html">About</a></li>
+                <li data-icon="star"><a href="contact.html">Contact info</a></li>
+                <li data-icon="back"><a href="login.html">Log out</a></li>
+            </ul>
+        </div>
+        <div data-role="header" data-position="fixed">
+            <a href="#registerPagePanel"
+               class="ui-btn ui-icon-bars ui-btn-icon-notext ui-corner-all uishadow"></a>
+            <h1>About</h1>
+
+        </div>
+        <div data-role="main" class="ui-content">
+            This app is created for geocaching enthusiast.
+            With it user can save new geo cache information and gps location.
+        </div>
+        <!-- Tabs navigation -->
+        <div id="tabs" data-role="footer" data-position="fixed">
+            <ul id="tab-bar">
+                <li>
+                    <a href="index.html">Add</a>
+                </li>
+                <li>
+                    <a href="list.html">List</a>
+                </li>
+                <li>
+                    <a href="#about.html">About</a>
+                </li>
+                <li>
+                    <a href="contact.html">Contact</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
