@@ -1,8 +1,4 @@
-﻿// For an introduction to the Blank template, see the following documentation:
-// http://go.microsoft.com/fwlink/?LinkID=397704
-// To debug code on page load in cordova-simulate or on Android devices/emulators: launch your app, set breakpoints, 
-// and then run "window.location.reload()" in the JavaScript Console.
-//Creating a database
+﻿//Creating a database
 $(document).on("ready", function () {
     databaseHandler.createDatabase();
 
@@ -40,19 +36,16 @@ function loginUserdata() {
         }
     }
 }
+//Getting gps position
 function getPosition() {
     var options = {
         enableHighAccuracy: true,
         maximumAge: 3600000
     }
     var watchID = navigator.geolocation.getCurrentPosition(onSuccess, onError, options);
-
+    //Adding data to field 
     function onSuccess(position) {
         $("#txtGPS").val("Latitude: " + position.coords.latitude + " Longitude: " + position.coords.longitude + " Altitude: " + position.coords.altitude );
-        alert('Latitude: ' + position.coords.latitude + '\n' +
-            'Longitude: ' + position.coords.longitude + '\n' +
-            'Altitude: ' + position.coords.altitude + '\n' +
-            'Timestamp: ' + position.timestamp + '\n');
     };
 
     function onError(error) {
@@ -91,30 +84,63 @@ function addLocationdata() {
         alert("GPS is required!");
     } else {
 
-        getLocationHandler.addAction(username, location, gps);
-        document.getElementById("sports").reset();
+        locationDataHandler.addAction(username, location, gps);
+        document.getElementById("caches").reset();
 
     }
 }
+function updateLocationdata() {
+    var username = sessionStorage.getItem("user_info");
+    var location = $("#showLocation").val();
+    var gps = $("#showGPS").val();
+    var rowInfo = $("#rowInfo").val();
+    if (!location) {
+        alert("Location information is required!");
+    } else if (!gps) {
+        alert("GPS is required!");
+    } else {
 
-function getSportdata() {
+        locationDataHandler.updateRowData(username, location, gps, rowInfo);
+        document.getElementById("selectedCache").reset();
+
+    }
+}
+function deleteLocationdata() {
+    var username = sessionStorage.getItem("user_info");
+    var location = $("#showLocation").val();
+    var gps = $("#showGPS").val();
+    var rowInfo = $("#rowInfo").val();
+    if (!location) {
+        alert("Location information is required!");
+    } else if (!gps) {
+        alert("GPS is required!");
+    } else {
+        var r = confirm("Delete is permanent, continue?");
+        if (r == true) {
+            locationDataHandler.deleteRowData(rowInfo);
+            document.getElementById("selectedCache").reset();
+        }
+    }
+}
+function getLocationdata() {
 
     var username = sessionStorage.getItem("user_info");
 
-    getSportHandler.getSportData(username);
+    getLocationHandler.getLocationData(username);
 
 }
 
 
 function showData(ind) {
     var username = sessionStorage.getItem("user_info");
-
-    getSportHandler.showRowData(username, ind);
+    
+    $("#txtList").innerHTML = "";
+    getLocationHandler.showRowData(username, ind);
 
 }
 
 function resetForm() {
-    document.getElementById("sports").reset();
+    document.getElementById("caches").reset();
 }
 
 (function () {

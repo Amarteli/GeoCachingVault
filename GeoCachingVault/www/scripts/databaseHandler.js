@@ -18,7 +18,7 @@ var databaseHandler = {
                         console.log("Error while creating the table: " + error.message);
                     })
                 tx.executeSql(
-                    "create table if not exists geodata(_id int primary key, username text, geotext text, geolocation text)",
+                    "create table if not exists geodata(rowid INTEGER PRIMARY KEY AUTOINCREMENT, username text, geotext text, geolocation text)",
                     [],
                     function (tx, results) { },
                     function (tx, error) {

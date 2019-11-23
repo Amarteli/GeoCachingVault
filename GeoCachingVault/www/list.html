@@ -1,0 +1,97 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <!-- Include meta tag to ensure proper rendering and touch zooming -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Include jQuery Mobile stylesheets -->
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+
+    <!-- Include the jQuery library -->
+    <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <!-- Include the jQuery Mobile library -->
+    <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+
+    <!-- Updated CSS and JavaScript ref -->
+    <link rel="stylesheet" type="text/css" href="mobileui/style.css">
+    <link rel="icon" href="img/favicon.ico" type="image/x-icon" />
+
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="/scripts/databaseHandler.js"></script>
+    <script type="text/javascript" src="/scripts/pwdHandler.js"></script>
+    <script type="text/javascript" src="/scripts/loginHandler.js"></script>
+    <script type="text/javascript" src="/scripts/getLocationHandler.js"></script>
+    <script type="text/javascript" src="/scripts/locationDataHandler.js"></script>
+    <script type="text/javascript" src="/mobileui/mobileui.js"></script>
+    <script type="text/javascript" src="/scripts/index.js"></script>
+    <title>List</title>
+
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-inline'; style-src 'self' 'unsafe-inline'; media-src *">
+
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-tap-highlight" content="no">
+    <!--  <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width"> -->
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+    <style>
+        .body {
+            overflow: auto;
+        }
+    </style>
+
+</head>
+<body  class="cover vertical-align-center blue-grey-600 align-center blend-soft-light">
+
+    <div data-role="page" id="registerpage">
+        <div data-role="panel" id="registerPagePanel">
+            <h1>Menu</h1>
+            <ul data-role="listview" data-inset="true">
+                <li data-role="list-divider">Geocaching Vault</li>
+                <li data-icon="plus"><a href="index.html">Add</a></li>
+                <li data-icon="grid"><a href="#list.html">List</a></li>
+                <li data-icon="back"><a href="login.html">Log out</a></li>
+            </ul>
+        </div>
+        <div data-role="header" data-position="fixed">
+            <a href="#registerPagePanel"
+               class="ui-btn ui-icon-bars ui-btn-icon-notext ui-corner-all uishadow"></a>
+            <h1>Cache list</h1>
+
+        </div>
+
+        
+        <div data-role="main" class="ui-content">
+            <form id="showCache">
+                <div class="ui-field-contain">
+                    <label for="txtList">Saved caches:</label>
+                    <table id="txtList" class="swiper-container"></table>
+
+                </div>
+            </form>
+            <form id="selectedCache">
+                <div class="ui-field-contain">
+                    <label for="showLocation">Location info:</label>
+
+                    <textarea name="showLocation" id="showLocation" data-clear-btn="true" style="height:400px;"></textarea>
+                    <label for="showGPS">GPS position:</label>
+
+                    <textarea name="showGPS" id="showGPS" data-clear-btn="true" style="height:400px;"></textarea>
+                    <input type="hidden" id="rowInfo" />
+                    <label for="btnAdd"></label>
+                    <a class="ui-btn ui-icon-plus ui-btn-icon-left"
+                       id="btnAdd" onclick="getLocationdata()">Get locations</a>
+                    <label for="btnAdd"></label>
+                    <a class="ui-btn ui-icon-plus ui-btn-icon-left"
+                       id="btnAdd" onclick="updateLocationdata()">Update selected</a>
+                    <label for="btnAdd"></label>
+                    <a class="ui-btn ui-icon-plus ui-btn-icon-left"
+                       id="btnAdd" onclick="deleteLocationdata()">Delete selected</a>
+                </div>
+            </form>
+        </div>
+        <div data-role="footer" data-position="fixed">
+            <h1>Geocaching Vault</h1>
+        </div>
+    </div>
+</body>
+</html>
